@@ -57,6 +57,18 @@ void format_data(){
     sprintf(record_buffer, "%s,%s,%s\n\0", str_temp[0], str_temp[1], str_temp[2]);
 }
 
+void write_data_v2(){
+    File f = SD.open(output_file, FILE_WRITE);
+    f.print(velocity);
+    f.print(",");
+    f.print(distance);
+    f.print(",");
+    f.print(time);
+    f.print("\n");
+    f.close();
+
+}               
+
 void write_data(){
     File f = SD.open(output_file, FILE_WRITE);
     f.print(record_buffer);
@@ -70,7 +82,7 @@ void log_data(){
         prev_time_experiment = current_time;     
         time += 0.1; 
         format_data();
-        write_data();
+        write_data_v2();
         digitalWrite(LED, LOW);
     }
 }
