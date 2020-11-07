@@ -20,6 +20,7 @@ void generate_file();
 void blink_led();
 void format_data();
 void write_data();
+void write_data_v2();
 // gathering / formatting data
 void read_distance();
 void read_data();
